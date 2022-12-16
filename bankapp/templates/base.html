@@ -1,0 +1,92 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+     <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script>
+var subjectObject = {
+  "Calicut": {
+    "Mavoor": ["Links", "Images", "Tables", "Lists"],
+    "Beypore": ["Borders", "Margins", "Backgrounds", "Float"],
+    "Mukkom": ["Variables", "Operators", "Functions", "Conditions"]
+  },
+   "Malappuram": {
+    "Kondotty": ["Links", "Images", "Tables", "Lists"],
+    "Tanur": ["Borders", "Margins", "Backgrounds", "Float"],
+    "Tirur": ["Variables", "Operators", "Functions", "Conditions"]
+  },
+   "Kannur": {
+    "talasseri": ["Links", "Images", "Tables", "Lists"],
+    "mahi": ["Borders", "Margins", "Backgrounds", "Float"],
+    "payyannur": ["Variables", "Operators", "Functions", "Conditions"]
+  },
+
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+       //empty Chapters- and Topics- dropdowns
+         topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+}
+</script>
+</head>
+<body style="background-color:powderblue;">
+<!--<nav class="navbar bg-dark">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#">-->
+<!--&lt;!&ndash;      <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">&ndash;&gt;-->
+<!--      Movies-->
+<!--    </a>-->
+<!--  </div>-->
+<!--</nav>-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="login">Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="register">Register</a>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Branches
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kozhikode">Calicut</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Malappuram">Malappuram</a>
+           <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kannur">Kannur</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Trivandrum</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Idukki_district"> Idukki</a>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+{% block content %}
+
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
